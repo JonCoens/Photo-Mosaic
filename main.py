@@ -18,9 +18,9 @@ else:
 		
 print "Have " + str(len(db)) + " samples"
 
-photos = glob.glob("*.png")
+photos = glob.glob("*.jpg")
 
 result = mosaic.createMosaic(db, photos[0])
 
 result.show()
-result.save('result.gif', 'GIF')
+result.save('result.jpeg', 'JPEG')

@@ -12,7 +12,7 @@ def mergeWith(a, b):
 	return Bucket(r, g, b, tot)
 
 def cutoff((dist, bucket)):
-	return dist <= 6
+	return dist <= 7
 
 def topPercent((howmany, bucket)):
 	return bucket.count / float(max(howmany,1)) >= 0.1
@@ -49,6 +49,8 @@ def extractPhotoInfo(photo):
 					print howmany
 				bucketize(pix[x,y][0], pix[x,y][1], pix[x,y][2], buckets)
 	buckets = sorted(buckets, key=lambda bucket: bucket.count, reverse=True)
+	for i in range(len(buckets)):
+		buckets[i].proportion = buckets[i].count / float(howmany)
 
 	print "\n" + str(howmany)
 	print len(buckets)
