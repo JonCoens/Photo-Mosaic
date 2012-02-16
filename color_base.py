@@ -14,3 +14,12 @@ class Bucket:
 		
 	def getRGBA(self, a):
 		return (round(self.rgb_aves[0]), round(self.rgb_aves[1]), round(self.rgb_aves[2]), a)
+		
+def mergeWith(a, b):
+	if a is None:
+		return b
+	tot = float(a.count + b.count)
+	r = (a.count/tot)*a.rgb_aves[0] + (b.count/tot)*b.rgb_aves[0]
+	g = (a.count/tot)*a.rgb_aves[1] + (b.count/tot)*b.rgb_aves[1]
+	b = (a.count/tot)*a.rgb_aves[2] + (b.count/tot)*b.rgb_aves[2]
+	return Bucket(r, g, b, tot)

@@ -18,9 +18,13 @@ else:
 		
 print "Have " + str(len(db)) + " samples"
 
-photos = glob.glob("*.jpg")
+photos = glob.glob("*.png")
 
 result = mosaic.createMosaic(db, photos[0])
-
 result.show()
-result.save('result.jpeg', 'JPEG')
+result.save('result-Cartesian.png', 'PNG')
+
+
+result = mosaic.createMosaicHex(db, photos[0])
+result.show()
+result.save('result-Hex.png', 'PNG')
